@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.engineering.worm",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "monolith",
+    "baseName": "worm",
+    "packageName": "br.com.engineering.worm",
+    "packageFolder": "br/com/engineering/worm",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MTEyN2I1YzU2ZjY3YzY3Zjc4ZDE1ODEyZjRlMmRjYjJlYTFlZmQ3ZjA3YTMzM2YxMjBkMmExZjFkMjcxODFhZTEzODBlOWUxMDllYzJiYTU3Mjg2NGI1MDlkMTU0NTYzYzEzZWQ2OTQ3Mjk0NmE1ZDE4YTdlYmU4NDk5ZjgxOTM=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": [
+      "pt-br",
+      "en"
+    ]
+  }
+}
