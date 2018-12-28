@@ -37,8 +37,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/worm
-        username: worm
-        password:
+        username: postgres
+        password: sa
         hikari:
             auto-commit: false
     jpa:

@@ -23,6 +23,7 @@ plugins {
     id "io.spring.dependency-management" version "1.0.6.RELEASE"
     id "com.moowork.node" version "1.2.0"
     id 'org.liquibase.gradle' version '2.0.1'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
@@ -39,6 +40,11 @@ apply plugin: 'propdeps'
 apply plugin: 'com.moowork.node'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'idea'
+
+//https://github.com/ewerk/gradle-plugins/tree/master/plugins/querydsl-plugin
+querydsl {
+    jpa = true
+}
 
 dependencyManagement {
   imports {
@@ -129,8 +135,8 @@ liquibase {
         main {
             driver 'org.postgresql.Driver'
             url 'jdbc:postgresql://localhost:5432/worm'
-            username 'worm'
-            password ''
+            username 'postgres'
+            password 'sa'
             changeLogFile 'src/main/resources/config/liquibase/master.xml'
             defaultSchemaName ''
             logLevel 'debug'
@@ -139,8 +145,8 @@ liquibase {
         diffLog {
             driver 'org.postgresql.Driver'
             url 'jdbc:postgresql://localhost:5432/worm'
-            username 'worm'
-            password ''
+            username 'postgres'
+            password 'sa'
             changeLogFile project.ext.diffChangelogFile
             referenceUrl 'hibernate:spring:br.com.engineering.worm.domain?dialect=org.hibernate.dialect.PostgreSQL82Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy'
             defaultSchemaName ''
@@ -173,6 +179,8 @@ dependencies {
     compile "io.dropwizard.metrics:metrics-jvm"
     compile "io.dropwizard.metrics:metrics-servlet"
     compile "io.dropwizard.metrics:metrics-servlets"
+    compile "com.querydsl:querydsl-apt:${querydsl_version}"
+    compile "com.querydsl:querydsl-jpa:${querydsl_version}"
     compile "io.prometheus:simpleclient"
     compile "io.prometheus:simpleclient_dropwizard"
     compile "io.prometheus:simpleclient_servlet"
