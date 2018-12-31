@@ -1,12 +1,6 @@
 package br.com.engineering.worm.web.rest;
 
-import br.com.engineering.worm.security.jwt.JWTFilter;
-import br.com.engineering.worm.security.jwt.TokenProvider;
-import br.com.engineering.worm.web.rest.vm.LoginVM;
-
-import com.codahale.metrics.annotation.Timed;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +8,16 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.codahale.metrics.annotation.Timed;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import br.com.engineering.worm.security.jwt.JWTFilter;
+import br.com.engineering.worm.security.jwt.TokenProvider;
+import br.com.engineering.worm.web.rest.vm.LoginVM;
 
 /**
  * Controller to authenticate users.
@@ -48,6 +49,12 @@ public class UserJWTController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);
+    }
+    
+    @DeleteMapping("/authenticate")
+    @Timed
+    public ResponseEntity<Void> logout() {
+        return ResponseEntity.ok().build();
     }
 
     /**
