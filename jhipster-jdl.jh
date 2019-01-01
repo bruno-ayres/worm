@@ -1,0 +1,43 @@
+entity Customer {
+	name String required
+    active Boolean required
+}
+
+entity AccountManager {
+	name String required
+    active Boolean required
+}
+
+entity Opportunity {
+	title String required
+    status OpportunityStatus required
+    probability Integer required
+    tcv Double required
+    closeDate Instant    
+}
+
+entity OpportunityHistory {
+    status OpportunityStatus required
+}
+
+enum OpportunityStatus {
+    RESERVED, PREPARING, SENT, WON, DECLINED
+}
+
+relationship ManyToOne {
+  Opportunity{customer(name) required} to Customer
+  Opportunity{accountManager(name) required} to AccountManager
+}
+
+relationship OneToMany {
+   Opportunity{opportunityHistory} to OpportunityHistory{opportunity(title) required}
+}
+
+// microservice * with SmartAssetService
+
+// Set service options to all except few
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+
+// filter *

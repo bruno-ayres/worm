@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opportunity">
+            <h2><span jhiTranslate="wormApp.opportunity.detail.title">Opportunity</span> {{opportunity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wormApp.opportunity.title">Title</span></dt>
+                <dd>
+                    <span>{{opportunity.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="wormApp.opportunity.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'wormApp.OpportunityStatus.' + opportunity.status}}">{{opportunity.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="wormApp.opportunity.probability">Probability</span></dt>
+                <dd>
+                    <span>{{opportunity.probability}}</span>
+                </dd>
+                <dt><span jhiTranslate="wormApp.opportunity.tcv">Tcv</span></dt>
+                <dd>
+                    <span>{{opportunity.tcv}}</span>
+                </dd>
+                <dt><span jhiTranslate="wormApp.opportunity.closeDate">Close Date</span></dt>
+                <dd>
+                    <span>{{opportunity.closeDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="wormApp.opportunity.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="opportunity.customerId">
+                        <a [routerLink]="['/customer', opportunity.customerId, 'view']">{{opportunity.customerName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wormApp.opportunity.accountManager">Account Manager</span></dt>
+                <dd>
+                    <div *ngIf="opportunity.accountManagerId">
+                        <a [routerLink]="['/account-manager', opportunity.accountManagerId, 'view']">{{opportunity.accountManagerName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opportunity', opportunity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

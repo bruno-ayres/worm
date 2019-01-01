@@ -47,6 +47,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
         this.loginService
             .login({
                 username: this.username,
+                email: this.username,
                 password: this.password,
                 rememberMe: this.rememberMe
             })

@@ -1,0 +1,28 @@
+{
+    "wormApp": {
+        "opportunity": {
+            "home": {
+                "title": "Opportunities",
+                "createLabel": "Criar novo Opportunity",
+                "createOrEditLabel": "Criar ou editar Opportunity"
+            },
+            "created": "Um novo Opportunity foi criado com o identificador {{ param }}",
+            "updated": "Um Opportunity foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Opportunity foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Opportunity {{ id }}?"
+            },
+            "detail": {
+                "title": "Opportunity"
+            },
+            "title": "Title",
+            "status": "Status",
+            "probability": "Probability",
+            "tcv": "Tcv",
+            "closeDate": "Close Date",
+            "opportunityHistory": "Opportunity History",
+            "customer": "Customer",
+            "accountManager": "Account Manager"
+        }
+    }
+}

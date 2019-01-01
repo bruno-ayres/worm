@@ -1,0 +1,22 @@
+{
+    "wormApp": {
+        "customer": {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Criar novo Customer",
+                "createOrEditLabel": "Criar ou editar Customer"
+            },
+            "created": "Um novo Customer foi criado com o identificador {{ param }}",
+            "updated": "Um Customer foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Customer foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Customer {{ id }}?"
+            },
+            "detail": {
+                "title": "Customer"
+            },
+            "name": "Name",
+            "active": "Active"
+        }
+    }
+}

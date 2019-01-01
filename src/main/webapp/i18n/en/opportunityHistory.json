@@ -1,0 +1,22 @@
+{
+    "wormApp": {
+        "opportunityHistory": {
+            "home": {
+                "title": "Opportunity Histories",
+                "createLabel": "Create a new Opportunity History",
+                "createOrEditLabel": "Create or edit a Opportunity History"
+            },
+            "created": "A new Opportunity History is created with identifier {{ param }}",
+            "updated": "A Opportunity History is updated with identifier {{ param }}",
+            "deleted": "A Opportunity History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Opportunity History {{ id }}?"
+            },
+            "detail": {
+                "title": "Opportunity History"
+            },
+            "status": "Status",
+            "opportunity": "Opportunity"
+        }
+    }
+}

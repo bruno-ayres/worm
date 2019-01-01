@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-opportunity-history-heading" jhiTranslate="wormApp.opportunityHistory.home.createOrEditLabel">Create or edit a Opportunity History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!opportunityHistory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="opportunityHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wormApp.opportunityHistory.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="opportunityHistory.status" id="field_status"  required>
+                        <option value="RESERVED">{{'wormApp.OpportunityStatus.RESERVED' | translate}}</option>
+                        <option value="PREPARING">{{'wormApp.OpportunityStatus.PREPARING' | translate}}</option>
+                        <option value="SENT">{{'wormApp.OpportunityStatus.SENT' | translate}}</option>
+                        <option value="WON">{{'wormApp.OpportunityStatus.WON' | translate}}</option>
+                        <option value="DECLINED">{{'wormApp.OpportunityStatus.DECLINED' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wormApp.opportunityHistory.opportunity" for="field_opportunity">Opportunity</label>
+                    <select class="form-control" id="field_opportunity" name="opportunity" [(ngModel)]="opportunityHistory.opportunityId"  required>
+                        <option *ngIf="!editForm.value.opportunity" [ngValue]="null" selected></option>
+                        <option [ngValue]="opportunityOption.id" *ngFor="let opportunityOption of opportunities; trackBy: trackOpportunityById">{{opportunityOption.title}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.opportunity?.dirty && editForm.controls.opportunity?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.opportunity?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

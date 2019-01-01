@@ -1,0 +1,22 @@
+{
+    "wormApp": {
+        "accountManager": {
+            "home": {
+                "title": "Account Managers",
+                "createLabel": "Create a new Account Manager",
+                "createOrEditLabel": "Create or edit a Account Manager"
+            },
+            "created": "A new Account Manager is created with identifier {{ param }}",
+            "updated": "A Account Manager is updated with identifier {{ param }}",
+            "deleted": "A Account Manager is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Account Manager {{ id }}?"
+            },
+            "detail": {
+                "title": "Account Manager"
+            },
+            "name": "Name",
+            "active": "Active"
+        }
+    }
+}

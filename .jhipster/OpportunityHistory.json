@@ -1,0 +1,31 @@
+{
+    "name": "OpportunityHistory",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "OpportunityStatus",
+            "fieldValues": "RESERVED,PREPARING,SENT,WON,DECLINED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "opportunity",
+            "otherEntityName": "opportunity",
+            "otherEntityField": "title"
+        }
+    ],
+    "changelogDate": "20181231120439",
+    "entityTableName": "opportunity_history",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

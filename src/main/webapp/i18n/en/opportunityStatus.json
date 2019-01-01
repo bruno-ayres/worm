@@ -1,0 +1,12 @@
+{
+    "wormApp": {
+        "OpportunityStatus": {
+            "null": "",
+            "RESERVED": "RESERVED",
+            "PREPARING": "PREPARING",
+            "SENT": "SENT",
+            "WON": "WON",
+            "DECLINED": "DECLINED"
+        }
+    }
+}
